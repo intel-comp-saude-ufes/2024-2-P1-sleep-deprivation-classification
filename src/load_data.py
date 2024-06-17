@@ -60,17 +60,19 @@ class LoadData:
     def _create_eeg_objects(self): 
         def load_raw_eeg(example, root, participant_id, session, task, class_label):
             try:
-                aux_eeg = mne.io.read_raw_eeglab(f"{root}/{participant_id}/{session}/eeg/{participant_id}_{session}_task-{task}_eeg.set").get_data()
+                aux_psd = mne.io.read_raw_eeglab(f"{root}/{participant_id}/{session}/eeg/{participant_id}_{session}_task-{task}_eeg.set").compute_psd(fmin=0.2, fmax=45).data
+                # print(aux_psd)
+                
                 if class_label:
-                    example[f"{task}_sd"] = (aux_eeg, class_label)
+                    example[f"{task}_sd"] = (aux_psd, class_label)
                 else:
-                    example[f"{task}_ns"] = (aux_eeg, class_label)
+                    example[f"{task}_ns"] = (aux_psd, class_label)
             except FileNotFoundError:
                 print(f"For participant {participant_id}, the file {participant_id}_{session}_task-{task}_eeg.set was not found")
-                aux_eeg = None
+                aux_psd = None
             except RuntimeError as e:
                 print(f"Error loading participant {participant_id} with session {session} and task {task}: {e}")
-                aux_eeg = None
+                aux_psd = None
 
             return example
 
