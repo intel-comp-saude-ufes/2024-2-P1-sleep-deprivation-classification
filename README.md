@@ -46,7 +46,7 @@ Experiments were done using Google Colab. Due to this nature, information regard
 - 2: Use only open eye data
 - 3: Use both data
 
-Results were saved in a models.zip folder, containing all models trained and csv file regarding both training and test metrics.
+Results were saved in a [models folder in Google drive](https://drive.google.com/drive/folders/1-5ioMPVPNmCraM51pQUYAllmzydI2IpC?usp=drive_link), containing all models trained and csv file regarding both training and test metrics.
 
 ## Results
 
