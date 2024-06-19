@@ -1,0 +1,16 @@
+pandas==2.2.2
+matplotlib==3.9.0
+mne==1.7.0
+pymatreader==0.0.32
+scikit-learn==1.5.0
+scipy==1.13.1
+
+PyQt6==6.7.0
+PyQt6-Qt6==6.7.1
+PyQt6-sip==13.6.0
+
+# notebook dependencies
+ipykernel==6.29.4
+ipython==8.25.0
+jupyter_client==8.6.2
+jupyter_core==5.7.2
